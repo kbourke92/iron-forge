@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard — IronForge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Admin <span style="color: var(--accent);">Dashboard</span></h1>
+  </div>
+</div>
+
+<div class="section">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Total Revenue</div>
+      <div class="stat-value">€{{ total_revenue|floatformat:0 }}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Orders</div>
+      <div class="stat-value">{{ order_count }}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Products</div>
+      <div class="stat-value">{{ product_count }}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Django Admin</div>
+      <div class="stat-value" style="font-size: 1.2rem; margin-top: 0.5rem;">
+        <a href="/admin/" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">Open →</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem;">Recent Orders</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Customer</th>
+        <th>Email</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      <tr>
+        <td style="font-weight: 700;">#{{ order.id }}</td>
+        <td>{{ order.full_name }}</td>
+        <td style="color: var(--text-muted);">{{ order.email }}</td>
+        <td style="font-weight: 700; color: var(--accent);">€{{ order.total_price }}</td>
+        <td><span class="status-badge status-{{ order.status }}">{{ order.status }}</span></td>
+        <td style="color: var(--text-muted); font-size: 0.85rem;">{{ order.created_at|date:"d M Y" }}</td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 2rem;">No orders yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Order Confirmed — IronForge{% endblock %}
+{% block content %}
+<div class="result-page">
+  <div>
+    <div class="result-icon">✅</div>
+    <h1 class="result-title">Order <span style="color: var(--accent);">Confirmed!</span></h1>
+    <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;">Your payment was successful. You'll receive a confirmation email shortly. Time to train.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="{% url 'store:product_list' %}" class="btn btn-primary">Keep Shopping</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'accounts:profile' %}" class="btn btn-outline">View Orders</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
