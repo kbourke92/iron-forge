@@ -1,225 +1,419 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}IronForge — Premium Gym Equipment{% endblock %}
+<main>
 
-{% block content %}
+  <!-- HERO -->
+  <header class="hero hero-bg">
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-<!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
-<section class="hero" style="background-image: url('{% static 'images/home-bg.jpg' %}'); background-size: cover; background-position: center 30%;">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Premium Performance Gear</p>
-    <h1>Forge Your<span>Limits</span></h1>
-    <p class="hero-sub">Professional-grade gym equipment built for athletes who refuse to settle. From barbells to recovery, we've got every rep covered.</p>
-    <div class="hero-actions">
-      <a href="{% url 'store:product_list' %}" class="btn btn-primary">Shop Now</a>
-      <a href="#classes" class="btn btn-outline">See Classes</a>
-    </div>
-  </div>
-</section>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Premium Performance Gear</p>
 
-<!-- ══ STATS STRIP ══════════════════════════════════════════════════════ -->
-<section class="stats-strip">
-  <div class="stats-strip-inner">
-    <div class="strip-stat"><span class="strip-num">2500+</span><span class="strip-label">Members</span></div>
-    <div class="strip-divider"></div>
-    <div class="strip-stat"><span class="strip-num">18</span><span class="strip-label">Expert Trainers</span></div>
-    <div class="strip-divider"></div>
-    <div class="strip-stat"><span class="strip-num">40+</span><span class="strip-label">Classes / Week</span></div>
-    <div class="strip-divider"></div>
-    <div class="strip-stat"><span class="strip-num">12</span><span class="strip-label">Years Strong</span></div>
-  </div>
-</section>
+      <h1>
+        Forge Your <span>Limits</span>
+      </h1>
 
-<!-- ══ ABOUT ════════════════════════════════════════════════════════════ -->
-<section class="section about-section">
-  <div class="about-grid">
-    <div class="about-images">
-      <div class="about-img-main">
-        <img src="{% static 'images/about-1.jpg' %}" alt="Athletes training together">
-      </div>
-      <div class="about-img-accent">
-        <img src="{% static 'images/about-2.jpg' %}" alt="Gym training session">
-        <div class="about-badge">
-          <span class="about-badge-num">12</span>
-          <span class="about-badge-txt">Years of<br>Excellence</span>
-        </div>
-      </div>
-    </div>
-    <div class="about-content">
-      <p class="eyebrow">About IronForge</p>
-      <h2 class="section-title">Where Champions<br>Are <span>Built</span></h2>
-      <p class="body-text">IronForge isn't just a store — it's a community forged in iron. We source and build equipment trusted by competitive powerlifters, CrossFit athletes, and everyday warriors who demand the best.</p>
-      <p class="body-text" style="margin-top: 1rem;">Every piece we carry is tested under real training conditions. Because what works in a sport lab might fail when you're three hours into a session and everything hurts.</p>
-      <div class="about-features">
-        <div class="about-feature"><span class="feature-icon">⚡</span><span>Pro-Grade Equipment</span></div>
-        <div class="about-feature"><span class="feature-icon">🔧</span><span>Expert Advice</span></div>
-        <div class="about-feature"><span class="feature-icon">🚚</span><span>Fast Delivery</span></div>
-        <div class="about-feature"><span class="feature-icon">🛡️</span><span>2-Year Warranty</span></div>
-      </div>
-      <a href="{% url 'store:product_list' %}" class="btn btn-primary" style="margin-top: 2rem;">Shop Equipment</a>
-    </div>
-  </div>
-</section>
+      <p class="hero-sub">
+        Professional-grade gym equipment built for athletes who refuse to settle.
+        From barbells to recovery, we've got every rep covered.
+      </p>
 
-<!-- ══ CLASSES ═══════════════════════════════════════════════════════════ -->
-<section class="section" id="classes" style="padding-top: 0;">
-  <div class="section-header">
-    <h2 class="section-title">Training <span>Classes</span></h2>
-    <a href="{% url 'store:product_list' %}" class="btn btn-outline" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View All</a>
-  </div>
-  <div class="classes-grid">
-    <div class="class-card class-card-large">
-      <img src="{% static 'images/class-1.jpg' %}" alt="Group Fitness">
-      <div class="class-overlay">
-        <span class="class-tag">Group</span>
-        <h3 class="class-name">Group HIIT</h3>
-        <p class="class-meta">Mon / Wed / Fri · 7:00 AM</p>
-      </div>
-    </div>
-    <div class="class-card">
-      <img src="{% static 'images/class-2.jpg' %}" alt="Strength Training">
-      <div class="class-overlay">
-        <span class="class-tag">Strength</span>
-        <h3 class="class-name">Power Lifting</h3>
-        <p class="class-meta">Tue / Thu · 6:00 PM</p>
-      </div>
-    </div>
-    <div class="class-card">
-      <img src="{% static 'images/class-3.jpg' %}" alt="Heavy Lifting">
-      <div class="class-overlay">
-        <span class="class-tag">Advanced</span>
-        <h3 class="class-name">Olympic Lifting</h3>
-        <p class="class-meta">Sat · 9:00 AM</p>
-      </div>
-    </div>
-    <div class="class-card">
-      <img src="{% static 'images/class-4.jpg' %}" alt="Barbell Class">
-      <div class="class-overlay">
-        <span class="class-tag">All Levels</span>
-        <h3 class="class-name">Barbell Club</h3>
-        <p class="class-meta">Daily · 12:00 PM</p>
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="hero-actions">
+        <a href="{% url 'store:product_list' %}" class="btn btn-primary">
+          Shop Now
+        </a>
 
-<!-- ══ WHY CHOOSE US ═════════════════════════════════════════════════════ -->
-<section class="choose-section" style="background-image: url('{% static 'images/banner-bg.jpg' %}');">
-  <div class="choose-overlay"></div>
-  <div class="choose-inner section">
-    <div class="choose-content">
-      <p class="eyebrow" style="color: var(--accent);">Why IronForge</p>
-      <h2 class="section-title" style="color: #fff;">Train With The<br><span>Best Gear</span></h2>
-      <p class="body-text" style="color: rgba(255,255,255,0.7); max-width: 440px;">Every barbell, every plate, every machine — sourced, tested, and approved by the athletes who use them day in, day out. No compromises.</p>
-      <div class="choose-list">
-        <div class="choose-item"><span class="choose-check">✓</span><span>Commercial-grade barbells &amp; plates</span></div>
-        <div class="choose-item"><span class="choose-check">✓</span><span>Expert staff with competitive backgrounds</span></div>
-        <div class="choose-item"><span class="choose-check">✓</span><span>Ireland-wide delivery within 3–5 days</span></div>
-        <div class="choose-item"><span class="choose-check">✓</span><span>Full 30-day returns, no questions asked</span></div>
-        <div class="choose-item"><span class="choose-check">✓</span><span>Custom gym setup consultations available</span></div>
+        <a href="#classes" class="btn btn-outline">
+          See Classes
+        </a>
       </div>
-      <a href="{% url 'store:product_list' %}" class="btn btn-primary" style="margin-top: 2rem;">Shop Now</a>
     </div>
-    <div class="choose-images">
-      <img src="{% static 'images/choose-1.jpg' %}" alt="Personal training" class="choose-img-1">
-      <img src="{% static 'images/choose-2.jpg' %}" alt="Bench press" class="choose-img-2">
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- ══ FEATURED PRODUCTS ═══════════════════════════════════════════════ -->
-<section class="section" id="featured">
-  <div class="section-header">
-    <h2 class="section-title">Featured <span>Gear</span></h2>
-    <a href="{% url 'store:product_list' %}" class="btn btn-outline" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View All</a>
-  </div>
-  <div class="products-grid">
-    {% for product in featured %}
-    <div class="product-card">
-      <a href="{% url 'store:product_detail' product.slug %}">
-        <div class="product-img">
-          {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-          {% else %}
-            <div class="product-img-placeholder">⚡</div>
-          {% endif %}
-        </div>
-        <div class="product-info">
-          {% if product.category %}<p class="product-category">{{ product.category.name }}</p>{% endif %}
-          <h3 class="product-name">{{ product.name }}</h3>
-          <p class="product-price">€{{ product.price }}</p>
-        </div>
+  <!-- STATS -->
+  <section class="stats-strip" aria-label="Gym statistics">
+    <ul class="stats-strip-inner">
+      <li class="strip-stat">
+        <span class="strip-num">2500+</span>
+        <span class="strip-label">Members</span>
+      </li>
+
+      <li class="strip-stat">
+        <span class="strip-num">18</span>
+        <span class="strip-label">Expert Trainers</span>
+      </li>
+
+      <li class="strip-stat">
+        <span class="strip-num">40+</span>
+        <span class="strip-label">Classes / Week</span>
+      </li>
+
+      <li class="strip-stat">
+        <span class="strip-num">12</span>
+        <span class="strip-label">Years Strong</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about-section" aria-labelledby="about-heading">
+    <div class="about-grid">
+
+      <div class="about-images">
+        <figure class="about-img-main">
+          <img src="{% static 'images/about-1.jpg' %}" alt="Athletes training together" loading="lazy">
+        </figure>
+
+        <figure class="about-img-accent">
+          <img src="{% static 'images/about-2.jpg' %}" alt="Gym training session" loading="lazy">
+
+          <figcaption class="about-badge">
+            <span class="about-badge-num">12</span>
+            <span class="about-badge-txt">Years of Excellence</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="about-content">
+        <p class="eyebrow">About IronForge</p>
+
+        <h2 id="about-heading" class="section-title">
+          Where Champions Are <span>Built</span>
+        </h2>
+
+        <p class="body-text">
+          IronForge isn't just a store — it's a community forged in iron.
+          We source and build equipment trusted by competitive powerlifters,
+          CrossFit athletes, and everyday warriors who demand the best.
+        </p>
+
+        <p class="body-text">
+          Every piece we carry is tested under real training conditions.
+          Because what works in a sport lab might fail when you're three
+          hours into a session and everything hurts.
+        </p>
+
+        <ul class="about-features">
+          <li class="about-feature">
+            <span class="feature-icon" aria-hidden="true">⚡</span>
+            <span>Pro-Grade Equipment</span>
+          </li>
+
+          <li class="about-feature">
+            <span class="feature-icon" aria-hidden="true">🔧</span>
+            <span>Expert Advice</span>
+          </li>
+
+          <li class="about-feature">
+            <span class="feature-icon" aria-hidden="true">🚚</span>
+            <span>Fast Delivery</span>
+          </li>
+
+          <li class="about-feature">
+            <span class="feature-icon" aria-hidden="true">🛡️</span>
+            <span>2-Year Warranty</span>
+          </li>
+        </ul>
+
+        <a href="{% url 'store:product_list' %}" class="btn btn-primary">
+          Shop Equipment
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLASSES -->
+  <section class="section" id="classes" aria-labelledby="classes-heading">
+    <div class="section-header">
+      <h2 id="classes-heading" class="section-title">
+        Training <span>Classes</span>
+      </h2>
+
+      <a href="{% url 'store:product_list' %}" class="btn btn-outline">
+        View All
       </a>
-      <div style="padding: 0 1.25rem 1.25rem;">
-        <a href="{% url 'store:add_to_cart' product.id %}" class="btn btn-primary btn-full" style="font-size: 0.85rem; padding: 0.65rem 1rem;">Add to Cart</a>
-      </div>
     </div>
-    {% empty %}
-    <p style="color: var(--text-muted); grid-column: 1/-1; text-align: center; padding: 3rem;">
-      No products yet. <a href="/admin/" style="color: var(--accent);">Add some from the admin panel.</a>
-    </p>
-    {% endfor %}
-  </div>
-</section>
 
-<!-- ══ TESTIMONIALS ══════════════════════════════════════════════════════ -->
-<section class="testimonials-section">
-  <div class="section">
-    <div class="section-header" style="justify-content: center; flex-direction: column; text-align: center; gap: 0.5rem;">
-      <p class="eyebrow">What Members Say</p>
-      <h2 class="section-title">Real Results, <span>Real People</span></h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"The Olympic barbell I ordered is absolutely elite quality. Arrived in 2 days, packed like it was going to the moon. My whole home gym is now IronForge."</p>
-        <div class="testimonial-author">
-          <img src="{% static 'images/member-1.jpg' %}" alt="Member" class="testimonial-avatar">
-          <div>
-            <div class="testimonial-name">Marcus T.</div>
-            <div class="testimonial-role">Powerlifter, 4 years</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Finally a gym equipment store run by people who actually train. The advice I got before buying my squat rack saved me €300. Unreal service."</p>
-        <div class="testimonial-author">
-          <img src="{% static 'images/member-2.jpg' %}" alt="Member" class="testimonial-avatar">
-          <div>
-            <div class="testimonial-name">Sofia R.</div>
-            <div class="testimonial-role">CrossFit athlete</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Ordered bumper plates for my garage. Top-tier quality, dead silent on my platform, and the weight accuracy is spot on. Zero regrets."</p>
-        <div class="testimonial-author">
-          <img src="{% static 'images/member-3.jpg' %}" alt="Member" class="testimonial-avatar">
-          <div>
-            <div class="testimonial-name">James O'Brien</div>
-            <div class="testimonial-role">Strength coach</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="classes-grid">
 
-<!-- ══ JOIN CTA ══════════════════════════════════════════════════════════ -->
-<section class="join-section" style="background-image: url('{% static 'images/join-bg.jpg' %}');">
-  <div class="join-overlay"></div>
-  <div class="join-content">
-    <p class="eyebrow" style="color: var(--accent);">Limited Time</p>
-    <h2 class="section-title" style="color: #fff; font-size: clamp(2.5rem, 6vw, 5rem);">Get 15% Off<br><span>Your First Order</span></h2>
-    <p style="color: rgba(255,255,255,0.7); max-width: 480px; margin: 1rem auto 2.5rem; font-size: 1.1rem;">Sign up today and use code <strong style="color: var(--accent);">FORGE15</strong> at checkout. Start building your ultimate gym.</p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="{% url 'accounts:register' %}" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Create Account</a>
-      <a href="{% url 'store:product_list' %}" class="btn btn-outline" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-color: rgba(255,255,255,0.4); color: #fff;">Browse Shop</a>
-    </div>
-  </div>
-</section>
+      <article class="class-card class-card-large">
+        <img src="{% static 'images/class-1.jpg' %}" alt="Group fitness class" loading="lazy">
 
-{% endblock %}
+        <div class="class-overlay">
+          <span class="class-tag">Group</span>
+          <h3 class="class-name">Group HIIT</h3>
+          <p class="class-meta">Mon / Wed / Fri · 7:00 AM</p>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <img src="{% static 'images/class-2.jpg' %}" alt="Strength training class" loading="lazy">
+
+        <div class="class-overlay">
+          <span class="class-tag">Strength</span>
+          <h3 class="class-name">Power Lifting</h3>
+          <p class="class-meta">Tue / Thu · 6:00 PM</p>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <img src="{% static 'images/class-3.jpg' %}" alt="Olympic lifting class" loading="lazy">
+
+        <div class="class-overlay">
+          <span class="class-tag">Advanced</span>
+          <h3 class="class-name">Olympic Lifting</h3>
+          <p class="class-meta">Sat · 9:00 AM</p>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <img src="{% static 'images/class-4.jpg' %}" alt="Barbell club session" loading="lazy">
+
+        <div class="class-overlay">
+          <span class="class-tag">All Levels</span>
+          <h3 class="class-name">Barbell Club</h3>
+          <p class="class-meta">Daily · 12:00 PM</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="choose-section choose-bg" aria-labelledby="choose-heading">
+    <div class="choose-overlay" aria-hidden="true"></div>
+
+    <div class="choose-inner section">
+
+      <div class="choose-content">
+        <p class="eyebrow eyebrow-accent">Why IronForge</p>
+
+        <h2 id="choose-heading" class="section-title section-title-light">
+          Train With The <span>Best Gear</span>
+        </h2>
+
+        <p class="body-text body-text-light">
+          Every barbell, every plate, every machine — sourced,
+          tested, and approved by the athletes who use them
+          day in, day out. No compromises.
+        </p>
+
+        <ul class="choose-list">
+          <li class="choose-item">
+            <span class="choose-check" aria-hidden="true">✓</span>
+            <span>Commercial-grade barbells &amp; plates</span>
+          </li>
+
+          <li class="choose-item">
+            <span class="choose-check" aria-hidden="true">✓</span>
+            <span>Expert staff with competitive backgrounds</span>
+          </li>
+
+          <li class="choose-item">
+            <span class="choose-check" aria-hidden="true">✓</span>
+            <span>Ireland-wide delivery within 3–5 days</span>
+          </li>
+
+          <li class="choose-item">
+            <span class="choose-check" aria-hidden="true">✓</span>
+            <span>Full 30-day returns, no questions asked</span>
+          </li>
+
+          <li class="choose-item">
+            <span class="choose-check" aria-hidden="true">✓</span>
+            <span>Custom gym setup consultations available</span>
+          </li>
+        </ul>
+
+        <a href="{% url 'store:product_list' %}" class="btn btn-primary">
+          Shop Now
+        </a>
+      </div>
+
+      <div class="choose-images">
+        <img src="{% static 'images/choose-1.jpg' %}" alt="Personal training session" class="choose-img-1"
+          loading="lazy">
+
+        <img src="{% static 'images/choose-2.jpg' %}" alt="Bench press workout" class="choose-img-2" loading="lazy">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section" id="featured" aria-labelledby="featured-heading">
+    <div class="section-header">
+      <h2 id="featured-heading" class="section-title">
+        Featured <span>Gear</span>
+      </h2>
+
+      <a href="{% url 'store:product_list' %}" class="btn btn-outline">
+        View All
+      </a>
+    </div>
+
+    <div class="products-grid">
+
+      {% for product in featured %}
+      <article class="product-card">
+
+        <a href="{% url 'store:product_detail' product.slug %}">
+          <div class="product-img">
+
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" loading="lazy">
+            {% else %}
+            <div class="product-img-placeholder" aria-hidden="true">
+              ⚡
+            </div>
+            {% endif %}
+
+          </div>
+
+          <div class="product-info">
+
+            {% if product.category %}
+            <p class="product-category">
+              {{ product.category.name }}
+            </p>
+            {% endif %}
+
+            <h3 class="product-name">
+              {{ product.name }}
+            </h3>
+
+            <p class="product-price">
+              €{{ product.price }}
+            </p>
+
+          </div>
+        </a>
+
+        <div class="product-actions">
+          <a href="{% url 'store:add_to_cart' product.id %}" class="btn btn-primary btn-full">
+            Add to Cart
+          </a>
+        </div>
+
+      </article>
+      {% empty %}
+
+      <p class="empty-products">
+        No products yet.
+        <a href="/admin/">Add some from the admin panel.</a>
+      </p>
+
+      {% endfor %}
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" aria-labelledby="testimonials-heading">
+    <div class="section">
+
+      <div class="section-header section-header-centered">
+        <p class="eyebrow">What Members Say</p>
+
+        <h2 id="testimonials-heading" class="section-title">
+          Real Results, <span>Real People</span>
+        </h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star rating">
+            ★★★★★
+          </div>
+
+          <blockquote class="testimonial-text">
+            The Olympic barbell I ordered is absolutely elite quality.
+            Arrived in 2 days, packed like it was going to the moon.
+            My whole home gym is now IronForge.
+          </blockquote>
+
+          <footer class="testimonial-author">
+            <img src="{% static 'images/member-1.jpg' %}" alt="Marcus T." class="testimonial-avatar" loading="lazy">
+
+            <div>
+              <div class="testimonial-name">Marcus T.</div>
+              <div class="testimonial-role">Powerlifter, 4 years</div>
+            </div>
+          </footer>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star rating">
+            ★★★★★
+          </div>
+
+          <blockquote class="testimonial-text">
+            Finally a gym equipment store run by people who actually train.
+            The advice I got before buying my squat rack saved me €300.
+          </blockquote>
+
+          <footer class="testimonial-author">
+            <img src="{% static 'images/member-2.jpg' %}" alt="Sofia R." class="testimonial-avatar" loading="lazy">
+
+            <div>
+              <div class="testimonial-name">Sofia R.</div>
+              <div class="testimonial-role">CrossFit Athlete</div>
+            </div>
+          </footer>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star rating">
+            ★★★★★
+          </div>
+
+          <blockquote class="testimonial-text">
+            Ordered bumper plates for my garage. Top-tier quality,
+            dead silent on my platform and spot-on weight accuracy.
+          </blockquote>
+
+          <footer class="testimonial-author">
+            <img src="{% static 'images/member-3.jpg' %}" alt="James O'Brien" class="testimonial-avatar" loading="lazy">
+
+            <div>
+              <div class="testimonial-name">James O'Brien</div>
+              <div class="testimonial-role">Strength Coach</div>
+            </div>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section class="join-section join-bg" aria-labelledby="join-heading">
+    <div class="join-overlay" aria-hidden="true"></div>
+
+    <div class="join-content">
+      <p class="eyebrow eyebrow-accent">Limited Time</p>
+
+      <h2 id="join-heading" class="section-title section-title-xl">
+        Get 15% Off
+        <span>Your First Order</span>
+      </h2>
+
+      <p class="join-text">
+        Sign up today and use code
+        <strong class="promo-code">FORGE15</strong>
+        at checkout. Start building your ultimate gym.
+      </p>
+
+      <div class="join-actions">
+        <a href="{% url 'accounts:register' %}" class="btn btn-primary">
+          Create Account
+        </a>
+
+        <a href="{% url 'store:product_list' %}" class="btn btn-outline btn-light">
+          Browse Shop
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
