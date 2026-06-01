@@ -1,15 +1,30 @@
-{% extends 'base.html' %}
-{% block title %}Payment — IronForge{% endblock %}
-
-{% block extra_css %}
 <style>
-  .payment-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; }
-  .order-line { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-  .order-line:last-child { border-bottom: none; font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--accent); }
-</style>
-{% endblock %}
+  .payment-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+  }
 
-{% block content %}
+  .order-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+
+  .order-line:last-child {
+    border-bottom: none;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+</style>
+
+
+/* block content */
 <div class="page-header">
   <div class="page-header-inner">
     <h1>Pay<span style="color: var(--accent);">ment</span></h1>
@@ -19,21 +34,25 @@
 <div class="section">
   <div class="payment-wrapper">
     <div class="payment-card">
-      <h3 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem;">Order #{{ order.id }}</h3>
+      <h3
+        style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem;">
+        Order #{{ order.id }}</h3>
 
-      {% for item in order.items.all %}
+      /* for item in order.items.all */
       <div class="order-line">
         <span>{{ item.product_name }} × {{ item.quantity }}</span>
         <span>€{{ item.subtotal }}</span>
       </div>
-      {% endfor %}
+      /* endfor */
       <div class="order-line">
         <span>Total</span>
         <span>€{{ total }}</span>
       </div>
 
       <div style="margin: 2rem 0 1rem;">
-        <label style="display: block; font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">Card Details</label>
+        <label
+          style="display: block; font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">Card
+          Details</label>
         <div id="card-element"></div>
         <div id="card-errors" role="alert"></div>
       </div>
@@ -44,9 +63,8 @@
     </div>
   </div>
 </div>
-{% endblock %}
 
-{% block extra_js %}
+
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   const stripe = Stripe('{{ stripe_public_key }}');
@@ -87,4 +105,3 @@
     }
   });
 </script>
-{% endblock %}

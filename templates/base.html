@@ -1,60 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}IronForge{% endblock %}</title>
+  <title>Iron Forge</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-  {% load static %}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
-  {% block extra_css %}{% endblock %}
+
 </head>
+
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="{% url 'store:home' %}" class="nav-logo">IRON<span>FORGE</span></a>
-    <div class="nav-links">
-      <a href="{% url 'store:product_list' %}">Shop</a>
-      {% if user.is_authenticated %}
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="{% url 'store:home' %}" class="nav-logo">IRON<span>FORGE</span></a>
+      <div class="nav-links">
+        <a href="{% url 'store:product_list' %}">Shop</a>
+        /* if user.is_authenticated */
         <a href="{% url 'accounts:profile' %}">Account</a>
-        {% if user.is_staff %}
-          <a href="{% url 'store:admin_dashboard' %}" class="nav-admin">Dashboard</a>
-        {% endif %}
+        /* if user.is_staff */
+        <a href="{% url 'store:admin_dashboard' %}" class="nav-admin">Dashboard</a>
         <a href="{% url 'accounts:logout' %}">Logout</a>
-      {% else %}
+        /* else */
         <a href="{% url 'accounts:login' %}">Login</a>
         <a href="{% url 'accounts:register' %}">Register</a>
-      {% endif %}
-      <a href="{% url 'store:cart' %}" class="nav-cart">
-        Cart <span class="cart-badge">{{ cart_count }}</span>
-      </a>
+        <a href="{% url 'store:cart' %}" class="nav-cart">
+          Cart <span class="cart-badge">{{ cart_count }}</span>
+        </a>
+      </div>
     </div>
+  </nav>
+
+  <div class="messages-container">
   </div>
-</nav>
 
-{% if messages %}
-<div class="messages-container">
-  {% for message in messages %}
-    <div class="message message-{{ message.tags }}">{{ message }}</div>
-  {% endfor %}
-</div>
-{% endif %}
 
-<main>
-  {% block content %}{% endblock %}
-</main>
+  <main>
+  </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">IRON<span>FORGE</span></div>
-    <p class="footer-tagline">Built for those who train hard.</p>
-    <p class="footer-copy">&copy; 2024 IronForge. All rights reserved.</p>
-  </div>
-</footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">IRON<span>FORGE</span></div>
+      <p class="footer-tagline">Built for those who train hard.</p>
+      <p class="footer-copy">&copy; 2026 IronForge. All rights reserved.</p>
+    </div>
+  </footer>
 
-<script src="{% static 'js/main.js' %}"></script>
-{% block extra_js %}{% endblock %}
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
+
 </html>

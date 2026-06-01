@@ -1,7 +1,3 @@
-{% extends 'base.html' %}
-{% block title %}Shop — IronForge{% endblock %}
-
-{% block content %}
 <div class="page-header">
   <div class="page-header-inner">
     <h1>All <span style="color: var(--accent);">Products</span></h1>
@@ -10,50 +6,43 @@
 
 <div class="section">
   <form method="get" class="filter-bar">
-    <input
-      type="text"
-      name="q"
-      value="{{ q }}"
-      placeholder="Search products..."
-      class="search-input"
-    >
+    <input type="text" name="q" value="{{ q }}" placeholder="Search products..." class="search-input">
     <div class="category-pills">
-      <a href="{% url 'store:product_list' %}{% if q %}?q={{ q }}{% endif %}" class="pill {% if not active_cat %}active{% endif %}">All</a>
-      {% for cat in categories %}
-        <a href="?category={{ cat.slug }}{% if q %}&q={{ q }}{% endif %}" class="pill {% if active_cat == cat.slug %}active{% endif %}">{{ cat.name }}</a>
-      {% endfor %}
+      <a href="{% url 'store:product_list' %}{% if q %}?q={{ q }}{% endif %}"
+        class="pill {% if not active_cat %}active{% endif %}">All</a>
+      /* for cat in categories */
+      <a href="?category={{ cat.slug }}{% if q %}&q={{ q }}{% endif %}"
+        class="pill {% if active_cat == cat.slug %}active{% endif %}">{{ cat.name }}</a>
+      /* endfor */
     </div>
     <button type="submit" class="btn btn-primary" style="padding: 0.65rem 1.5rem; font-size: 0.9rem;">Search</button>
   </form>
 
   <div class="products-grid">
-    {% for product in products %}
+    /* for product in products */
     <div class="product-card">
       <a href="{% url 'store:product_detail' product.slug %}">
         <div class="product-img">
-          {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-          {% else %}
-            <div class="product-img-placeholder">⚡</div>
-          {% endif %}
+          /* if product.image */
+          <img src="{{ product.image.url }}" alt="{{ product.name }}">
+          /* else */
+          <div class="product-img-placeholder">⚡</div>
         </div>
         <div class="product-info">
-          {% if product.category %}
-            <p class="product-category">{{ product.category.name }}</p>
-          {% endif %}
+          /* if product.category */
+          <p class="product-category">{{ product.category.name }}</p>
           <h3 class="product-name">{{ product.name }}</h3>
           <p class="product-price">€{{ product.price }}</p>
         </div>
       </a>
       <div style="padding: 0 1.25rem 1.25rem;">
-        <a href="{% url 'store:add_to_cart' product.id %}" class="btn btn-primary btn-full" style="font-size: 0.85rem; padding: 0.65rem 1rem;">Add to Cart</a>
+        <a href="{% url 'store:add_to_cart' product.id %}" class="btn btn-primary btn-full"
+          style="font-size: 0.85rem; padding: 0.65rem 1rem;">Add to Cart</a>
       </div>
     </div>
-    {% empty %}
+    /* empty */
     <p style="color: var(--text-muted); grid-column: 1/-1; text-align: center; padding: 4rem 0;">
-      No products found{% if q %} for "{{ q }}"{% endif %}.
+      No products found for "{{ q }}".
     </p>
-    {% endfor %}
   </div>
 </div>
-{% endblock %}
