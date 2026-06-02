@@ -1,5 +1,6 @@
 import json
-import stripe
+import dj_database_url
+import Stripe
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
@@ -10,8 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from .models import Product, Category, Order, OrderItem
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
-
+Stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # Cart helpers
 
@@ -149,7 +149,7 @@ def checkout(request):
 
         # Create Stripe PaymentIntent
         try:
-            intent = stripe.PaymentIntent.create(
+            intent = Stripe.PaymentIntent.create(
                 amount=int(total * 100),
                 currency='eur',
                 metadata={'order_id': order.id},
@@ -162,7 +162,7 @@ def checkout(request):
                 'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
                 'total': total,
             })
-        except stripe.error.StripeError as e:
+        except Stripe.error.StripeError as e:
             messages.error(request, f'Payment error: {str(e)}')
             order.delete()
 
@@ -191,7 +191,7 @@ def stripe_webhook(request):
 
     try:
         if webhook_secret:
-            event = stripe.Webhook.construct_event(payload, sig_header, webhook_secret)
+            event = Stripe.Webhook.construct_event(payload, sig_header, webhook_secret)
         else:
             event = json.loads(payload)
     except Exception:
@@ -201,7 +201,7 @@ def stripe_webhook(request):
         intent = event['data']['object']
         order_id = intent.get('metadata', {}).get('order_id')
         if order_id:
-            Order.objects.filter(id=order_id).update(status='paid')
+            Stripe.Order.objects.filter(id=order_id).update(status='paid')
 
     return HttpResponse(status=200)
 
