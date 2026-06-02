@@ -161,6 +161,3 @@ The application uses a relational database structure consisting of:
 Relationships are designed to support efficient product management, customer ordering, and administrative reporting.
 
 [Back to Top](#top)
-# iron-forge
-# iron-forge
-# iron-forge
