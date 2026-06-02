@@ -13,7 +13,7 @@ from .models import Product, Category, Order, OrderItem
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-# ─── Cart helpers ────────────────────────────────────────────────────────────
+# Cart helpers
 
 def get_cart(request):
     return request.session.get('cart', {})
@@ -33,7 +33,7 @@ def cart_total(cart, products_qs):
     return total
 
 
-# ─── Public views ─────────────────────────────────────────────────────────────
+# Public views
 
 def home(request):
     featured = Product.objects.filter(is_active=True)[:6]
@@ -65,7 +65,7 @@ def product_detail(request, slug):
     return render(request, 'store/product_detail.html', {'product': product})
 
 
-# ─── Cart views ───────────────────────────────────────────────────────────────
+# Cart views
 
 def cart_view(request):
     cart = get_cart(request)
@@ -113,7 +113,7 @@ def update_cart(request, product_id):
     return redirect('store:cart')
 
 
-# ─── Checkout & Stripe ────────────────────────────────────────────────────────
+# Checkout & Stripe
 
 def checkout(request):
     cart = get_cart(request)
@@ -206,7 +206,7 @@ def stripe_webhook(request):
     return HttpResponse(status=200)
 
 
-# ─── Simple admin dashboard ───────────────────────────────────────────────────
+# Simple admin dashboard
 
 @login_required
 def admin_dashboard(request):

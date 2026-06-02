@@ -14,12 +14,11 @@
         <div class="form-grid">
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" name="full_name" required
-              value="{% if user.is_authenticated %}{{ user.get_full_name }}{% endif %}">
+            <input type="text" name="full_name" required value="if user.is_authenticated">Get full name
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" name="email" required value="{% if user.is_authenticated %}{{ user.email }}{% endif %}">
+            <input type="email" name="email" required value="if user.is_authenticated">Get email</input>
           </div>
           <div class="form-group full">
             <label>Address</label>

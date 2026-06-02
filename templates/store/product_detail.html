@@ -1,12 +1,12 @@
 <div class="section">
   <div style="margin-bottom: 2rem;">
-    <a href="{% url 'store:product_list' %}" style="color: var(--text-muted); font-size: 0.9rem;">← Back to Shop</a>
+    <a href="store:product_list" style="color: var(--text-muted); font-size: 0.9rem;">← Back to Shop</a>
   </div>
 
   <div class="product-detail-grid">
     <div class="product-detail-img">
       /* if product.image */
-      <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+      <img src="product.image.url" alt="product description" style="width: 100%; height: 100%; object-fit: cover;">
       /* else */
       <div style="font-size: 8rem; color: var(--border);">⚡</div>
     </div>
@@ -15,8 +15,7 @@
       /* if product.category */
       <p class="product-category"
         style="font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;">
-        {{ product.category.name }}</p>
-      /* endif */
+      </p>
 
       <h1 class="product-detail-name">{{ product.name }}</h1>
       <p class="product-detail-price">€{{ product.price }}</p>
@@ -24,14 +23,13 @@
       /* if product.stock > 0 */
       <div class="stock-indicator">
         <span class="stock-dot"></span>
-        In Stock ({{ product.stock }} available)
+        In Stock (available)
       </div>
-      /* else */
       <div class="stock-indicator" style="color: #e84343;">
         <span class="stock-dot" style="background: #e84343;"></span>
         Out of Stock
       </div>
-      /* endif */
+
 
       <p class="product-detail-desc">{{ product.description }}</p>
 
@@ -40,12 +38,11 @@
         style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 1rem 2rem;">
         Add to Cart
       </a>
-      /* else */
       <button class="btn btn-outline" disabled
         style="width: 100%; justify-content: center; opacity: 0.5; cursor: not-allowed;">
         Out of Stock
       </button>
-      /* endif */
+
     </div>
   </div>
 </div>

@@ -36,17 +36,16 @@
     <div class="payment-card">
       <h3
         style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem;">
-        Order #{{ order.id }}</h3>
+        Order #</h3>
 
       /* for item in order.items.all */
       <div class="order-line">
-        <span>{{ item.product_name }} × {{ item.quantity }}</span>
-        <span>€{{ item.subtotal }}</span>
+        <span>×</span>
+        <span>€</span>
       </div>
-      /* endfor */
       <div class="order-line">
         <span>Total</span>
-        <span>€{{ total }}</span>
+        <span>€</span>
       </div>
 
       <div style="margin: 2rem 0 1rem;">
@@ -58,7 +57,7 @@
       </div>
 
       <button id="pay-btn" class="btn btn-primary btn-full" style="font-size: 1.05rem; padding: 1rem;">
-        Pay €{{ total }} Now
+        Pay € Now
       </button>
     </div>
   </div>

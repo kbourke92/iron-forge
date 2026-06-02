@@ -17,7 +17,7 @@
       </p>
 
       <div class="hero-actions">
-        <a href="{% url 'store:product_list' %}" class="btn btn-primary">
+        <a href="store:product_list" class="btn btn-primary">
           Shop Now
         </a>
 
@@ -59,11 +59,11 @@
 
       <div class="about-images">
         <figure class="about-img-main">
-          <img src="{% static 'images/about-1.jpg' %}" alt="Athletes training together" loading="lazy">
+          <img src="images/about-1.jpg" alt="Athletes training together" loading="lazy">
         </figure>
 
         <figure class="about-img-accent">
-          <img src="{% static 'images/about-2.jpg' %}" alt="Gym training session" loading="lazy">
+          <img src="images/about-2.jpg" alt="Gym training session" loading="lazy">
 
           <figcaption class="about-badge">
             <span class="about-badge-num">12</span>
@@ -113,7 +113,7 @@
           </li>
         </ul>
 
-        <a href="{% url 'store:product_list' %}" class="btn btn-primary">
+        <a href="store:product_list" class="btn btn-primary">
           Shop Equipment
         </a>
       </div>
@@ -128,7 +128,7 @@
         Training <span>Classes</span>
       </h2>
 
-      <a href="{% url 'store:product_list' %}" class="btn btn-outline">
+      <a href="store:product_list" class="btn btn-outline">
         View All
       </a>
     </div>
@@ -136,7 +136,7 @@
     <div class="classes-grid">
 
       <article class="class-card class-card-large">
-        <img src="{% static 'images/class-1.jpg' %}" alt="Group fitness class" loading="lazy">
+        <img src="images/class-1.jpg" alt="Group fitness class" loading="lazy">
 
         <div class="class-overlay">
           <span class="class-tag">Group</span>
@@ -146,7 +146,7 @@
       </article>
 
       <article class="class-card">
-        <img src="{% static 'images/class-2.jpg' %}" alt="Strength training class" loading="lazy">
+        <img src="images/class-2.jpg" alt="Strength training class" loading="lazy">
 
         <div class="class-overlay">
           <span class="class-tag">Strength</span>
@@ -156,7 +156,7 @@
       </article>
 
       <article class="class-card">
-        <img src="{% static 'images/class-3.jpg' %}" alt="Olympic lifting class" loading="lazy">
+        <img src="images/class-3.jpg" alt="Olympic lifting class" loading="lazy">
 
         <div class="class-overlay">
           <span class="class-tag">Advanced</span>
@@ -166,7 +166,7 @@
       </article>
 
       <article class="class-card">
-        <img src="{% static 'images/class-4.jpg' %}" alt="Barbell club session" loading="lazy">
+        <img src="images/class-4.jpg" alt="Barbell club session" loading="lazy">
 
         <div class="class-overlay">
           <span class="class-tag">All Levels</span>
@@ -224,16 +224,15 @@
           </li>
         </ul>
 
-        <a href="{% url 'store:product_list' %}" class="btn btn-primary">
+        <a href="store:product_list" class="btn btn-primary">
           Shop Now
         </a>
       </div>
 
       <div class="choose-images">
-        <img src="{% static 'images/choose-1.jpg' %}" alt="Personal training session" class="choose-img-1"
-          loading="lazy">
+        <img src="images/choose-1.jpg" alt="Personal training session" class="choose-img-1" loading="lazy">
 
-        <img src="{% static 'images/choose-2.jpg' %}" alt="Bench press workout" class="choose-img-2" loading="lazy">
+        <img src="images/choose-2.jpg" alt="Bench press workout" class="choose-img-2" loading="lazy">
       </div>
 
     </div>
@@ -246,56 +245,53 @@
         Featured <span>Gear</span>
       </h2>
 
-      <a href="{% url 'store:product_list' %}" class="btn btn-outline">
+      <a href="store:product_list" class="btn btn-outline">
         View All
       </a>
     </div>
 
     <div class="products-grid">
 
-      {% for product in featured %}
+      /* for product in featured */
       <article class="product-card">
 
-        <a href="{% url 'store:product_detail' product.slug %}">
+        <a href="store:product_detail?product_slug={{ product.slug }}">
           <div class="product-img">
 
-            {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" loading="lazy">
-            {% else %}
+            /* if product.image */
+            <img src="product.image.url" alt="product.name" loading="lazy">
             <div class="product-img-placeholder" aria-hidden="true">
               ⚡
             </div>
-            {% endif %}
 
           </div>
 
           <div class="product-info">
 
-            {% if product.category %}
+            /* if product.category */
             <p class="product-category">
-              {{ product.category.name }}
+              /* product.category.name */
             </p>
-            {% endif %}
 
             <h3 class="product-name">
-              {{ product.name }}
+              /* product.name */
             </h3>
 
             <p class="product-price">
-              €{{ product.price }}
+              € /* product.price */
             </p>
 
           </div>
         </a>
 
         <div class="product-actions">
-          <a href="{% url 'store:add_to_cart' product.id %}" class="btn btn-primary btn-full">
+          <a href="store:add_to_cart?product_id=product.id " class="btn btn-primary btn-full">
             Add to Cart
           </a>
         </div>
 
       </article>
-      {% empty %}
+
 
       <p class="empty-products">
         No products yet.
@@ -333,7 +329,7 @@
           </blockquote>
 
           <footer class="testimonial-author">
-            <img src="{% static 'images/member-1.jpg' %}" alt="Marcus T." class="testimonial-avatar" loading="lazy">
+            <img src="images/member-1.jpg" alt="Marcus T." class="testimonial-avatar" loading="lazy">
 
             <div>
               <div class="testimonial-name">Marcus T.</div>
@@ -353,7 +349,7 @@
           </blockquote>
 
           <footer class="testimonial-author">
-            <img src="{% static 'images/member-2.jpg' %}" alt="Sofia R." class="testimonial-avatar" loading="lazy">
+            <img src="images/member-2.jpg" alt="Sofia R." class="testimonial-avatar" loading="lazy">
 
             <div>
               <div class="testimonial-name">Sofia R.</div>
@@ -373,7 +369,7 @@
           </blockquote>
 
           <footer class="testimonial-author">
-            <img src="{% static 'images/member-3.jpg' %}" alt="James O'Brien" class="testimonial-avatar" loading="lazy">
+            <img src="images/member-3.jpg" alt="James O'Brien" class="testimonial-avatar" loading="lazy">
 
             <div>
               <div class="testimonial-name">James O'Brien</div>
@@ -405,11 +401,11 @@
       </p>
 
       <div class="join-actions">
-        <a href="{% url 'accounts:register' %}" class="btn btn-primary">
+        <a href="accounts:register" class="btn btn-primary">
           Create Account
         </a>
 
-        <a href="{% url 'store:product_list' %}" class="btn btn-outline btn-light">
+        <a href="store:product_list" class="btn btn-outline btn-light">
           Browse Shop
         </a>
       </div>

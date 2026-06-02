@@ -22,23 +22,22 @@
           /* for item in items */
           <tr>
             <td>
-              <a href="{% url 'store:product_detail' item.product.slug %}"
+              <a href="store:product_detail item.product.slug"
                 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
-                {{ item.product.name }}
               </a>
             </td>
-            <td>€{{ item.product.price }}</td>
+            <td>€</td>
             <td>
-              <form method="post" action="{% url 'store:update_cart' item.product.id %}" style="display: inline;">
+              <form method="post" action="store:update_cart item.product.id" style="display: inline;">
                 /* csrf_token */
                 <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" class="qty-input"
                   onchange="this.form.submit()">
               </form>
             </td>
-            <td style="font-weight: 700; color: var(--accent);">€{{ item.subtotal }}</td>
+            <td style="font-weight: 700; color: var(--accent);">€</td>
             <td>
-              <a href="{% url 'store:remove_from_cart' item.product.id %}"
-                style="color: var(--text-muted); font-size: 1.2rem;" title="Remove">✕</a>
+              <a href="store:remove_from_cart' item.product.id" style="color: var(--text-muted); font-size: 1.2rem;"
+                title="Remove">✕</a>
             </td>
           </tr>
           /* endfor */
@@ -60,24 +59,22 @@
       </div>
       <div class="cart-total-row final">
         <span>Total</span>
-        <span>€{{ total }}</span>
+        <span>€ /* Total */</span>
       </div>
-      <a href="{% url 'store:checkout' %}" class="btn btn-primary btn-full" style="margin-top: 1.5rem;">
+      <a href="store:checkout" class="btn btn-primary btn-full" style="margin-top: 1.5rem;">
         Proceed to Checkout
       </a>
-      <a href="{% url 'store:product_list' %}" class="btn btn-outline btn-full" style="margin-top: 0.75rem;">
+      <a href="store:product_list" class="btn btn-outline btn-full" style="margin-top: 0.75rem;">
         Continue Shopping
       </a>
     </div>
   </div>
-  {% else %}
   <div style="text-align: center; padding: 5rem 0;">
     <div style="font-size: 4rem; margin-bottom: 1.5rem;">🛒</div>
     <h2
       style="font-family: var(--font-display); font-size: 2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.75rem;">
       Cart is Empty</h2>
     <p style="color: var(--text-muted); margin-bottom: 2rem;">Time to gear up.</p>
-    <a href="{% url 'store:product_list' %}" class="btn btn-primary">Shop Now</a>
+    <a href="store:product_list" class="btn btn-primary">Shop Now</a>
   </div>
-  /* endif */
 </div>

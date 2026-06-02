@@ -1,18 +1,16 @@
-{% extends 'base.html' %}
-{% block title %}My Account — IronForge{% endblock %}
-
-{% block content %}
 <div class="page-header">
   <div class="page-header-inner">
     <h1>My <span style="color: var(--accent);">Account</span></h1>
-    <p style="color: var(--text-muted); margin-top: 0.5rem;">Welcome back, {{ user.first_name|default:user.username }}</p>
+    <p style="color: var(--text-muted); margin-top: 0.5rem;">Welcome back, {{ user.first_name|default:user.username }}
+    </p>
   </div>
 </div>
 
 <div class="section">
-  <h2 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem;">Order History</h2>
+  <h2
+    style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem;">
+    Order History</h2>
 
-  {% if orders %}
   <table class="data-table">
     <thead>
       <tr>
@@ -24,24 +22,19 @@
       </tr>
     </thead>
     <tbody>
-      {% for order in orders %}
+      /* for order in orders */
       <tr>
-        <td style="font-weight: 700;">#{{ order.id }}</td>
-        <td style="color: var(--text-muted);">{{ order.created_at|date:"d M Y" }}</td>
+        <td style="font-weight: 700;">#</td>
+        <td style="color: var(--text-muted);"></td>
         <td style="color: var(--text-muted); font-size: 0.85rem;">
-          {% for item in order.items.all %}{{ item.product_name }}{% if not forloop.last %}, {% endif %}{% endfor %}
         </td>
-        <td style="font-weight: 700; color: var(--accent);">€{{ order.total_price }}</td>
-        <td><span class="status-badge status-{{ order.status }}">{{ order.status }}</span></td>
+        <td style="font-weight: 700; color: var(--accent);">€</td>
+        <td><span class="status-badge status-{{ order.status }}"></span></td>
       </tr>
-      {% endfor %}
     </tbody>
   </table>
-  {% else %}
   <div style="text-align: center; padding: 4rem 0;">
     <p style="color: var(--text-muted); margin-bottom: 1.5rem;">No orders yet. Time to gear up!</p>
-    <a href="{% url 'store:product_list' %}" class="btn btn-primary">Shop Now</a>
+    <a href="store:product_list" class="btn btn-primary">Shop Now</a>
   </div>
-  {% endif %}
 </div>
-{% endblock %}
